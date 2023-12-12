@@ -1,0 +1,57 @@
+
+>>> Requisito : Ter python 3.11 instalado localmente (mesma versao config na lambda na aws), sistema UBUNTU.
+
+Para usar o pacote pandas em uma função AWS Lambda, é necessário criar um pacote de deployment que inclua a biblioteca pandas (e  outras dependências externas se necessário).
+
+1. Criar um Ambiente Virtual
+Primeiro, é uma boa prática criar um ambiente virtual para garantir que as dependências não entrem em conflito com as bibliotecas do sistema. No terminal do Ubuntu:
+
+sudo apt-get update
+sudo apt-get install python3-venv  # Se ainda não tiver o venv instalado
+python3.11 -m venv lambdaenv # criando o venv chamado lambdaenv
+source lambdaenv/bin/activate # ativa o venv criado
+
+
+2. Instalar o pandas
+Dentro do ambiente virtual, instalar o pandas (única dependencia desse projeto). Certifique-se de que a versão do Python no ambiente virtual corresponda à versão do Python na sua função Lambda (no caso, 3.11).
+
+pip install pandas
+
+
+3. Preparar o Pacote de Deployment
+Criar um diretório para o seu pacote de deployment e copie para lá os pacotes do ambiente virtual.
+
+mkdir lambda_package # criando diretorio lambda_package
+cp -r lambdaenv/lib/python3.11/site-packages/* lambda_package/  # Substitua o 3.11 pela sua versão do Python no projeto
+
+
+4. Adicionar o Código da Função Lambda
+Copiar o arquivo do script python da função Lambda para o diretório criado lambda_package
+
+cp caminho_script_lambda.py lambda_package/ # substitua caminho_script_lambda.py pelo caminho do script python da sua lambda, como o exemplo abaixo
+
+cp /home/lemberck/lambda_function.py lambda_package/
+
+
+5. Criar um Arquivo ZIP
+A partir do diretório que contém o pacote de deployment, criar um arquivo ZIP. Este arquivo contém seu código e todas as dependências necessárias do projeto.
+
+cd lambda_package # indo para o diretorio com o pacote de deployment
+zip -r ../lambda_function.zip . # criando o zip 
+
+6. Fazer Upload do Pacote na AWS Lambda
+Fazer o upload do arquivo ZIP para a sua função Lambda no console AWS:
+
+Acessar a função Lambda no console AWS.
+Faça o upload do arquivo lambda_function.zip criado para o bucket 'dependencias-scripts/lambda/'
+
+7. Testar a Função Lambda
+Após fazer o upload, testar a função Lambda para garantir que tudo esteja funcionando como esperado.
+
+Dicas Adicionais
+Limites de Tamanho: O tamanho total do pacote de deployment (código e dependências) deve estar dentro dos limites permitidos pela AWS Lambda.
+Logs de Erro: Se você encontrar problemas, verifique os logs no AWS CloudWatch para diagnóstico.
+Limpeza: Após criar o pacote, não esqueça de desativar o ambiente virtual (deactivate) e limpar os arquivos temporários se não forem mais necessários.
+
+
+

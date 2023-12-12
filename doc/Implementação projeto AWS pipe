@@ -1,0 +1,69 @@
+
+
+Implementação Projeto AWS - Processo ETL de arquivo JSON com Lambda
+
+########## Buckets #############################################################################################
+1. Criar os buckets
+- 'aws-bucket-input' , bucket que receberá o arquivo json. Lambda monitora esse evento para iniciar a pipeline 
+- 'aws-bucket-output' , bucket que terá o arquivo csv após todo o processo ETL
+- 'dependencias-scripts' bucket que terá o arquivo zipado com as dependencias dos scripts python 
+   - criar uma pasta chamada 'lambda' e fazer o upload do arquivo zipado
+
+########## Lambda #############################################################################################
+2. Criar as permissões no IAM para Lambda
+- Função para o bucket S3
+   . AmazonS3FullAccess  
+- Função para o cloudwatch
+   . CloudWatchLogsFullAccess
+   
+   Nome da função: lambda-s3-cloudwatch
+   
+ 
+ 3. Criar Função Lambda
+- Definir o nome (pipeline-disparo)
+- Definir a linguagem como python
+- Manter a arquitetura como x86_64
+- Alterar a função de execução padrão > Usar uma função existente > Escolher a função IAM criada no passo 2      
+- Criar a lambda
+   
+ 3.1 Adicionar o gatilho da Lambda
+- Configuração do gatilho (será o upload do arquivo com início 'pet' e final '.json' no bucket):
+ . Selecionar a origem como S3 > Escolher o bucket que a lambda vai monitorar (aws-bucket-input)
+ . Selecionar o tipo do evento como 'PUT' (limitando para upload no bucket)
+ . Selecionar o prefixo como 'pet' (limitando para o início do nome do arquivo esperado)
+ . Selecionar o sufixo como '.json' (limitando para o tipo de arquivo esperado)
+ 
+ 3.2 Configurar as variáveis de ambiente da lambda (aba configurações > Variaveis de ambiente)
+ . RESULT_PIPELINE_BUCKET : nome do bucket de saída do processo ETL (aws-bucket-output)
+ 
+ 3.3 Carregar o arquivo zip com código + dependências (aba Código)
+ - Fazer o upload do arquivo lambda_function.zip criado para o bucket 'dependencias-scripts/lambda/'
+ - Na lambda, aba código > 'Fazer upload de' > 'Localização do Amazon S3
+ - Colocar o link do URL do arquivo zip, que pode ser pego ao entrar no s3 > objeto . Esperar carregar.
+ 	 - ex de URL : https://dependencias-scripts.s3.sa-east-1.amazonaws.com/lambda/lambda_function.zip
+ 
+ 3.4 Configurar o tempo limite de execução da lambda
+ . Por padrão o tempo limite da lambda é de 3 segundos. Isso é insuficiente para lambda instalar as dependencias do código, causando erro de TIMEOUT.
+ 	- Aumentar o tempo limete para 10 segundos.
+ 		- Lambda > Funções > pipeline-disparo > Configuração > Configuração geral > Editar > Tempo limite > 10 seg
+ 
+ 3.5 Criar o Evento de teste da lambda
+ - Nome do evento 'teste-disparo-lambda'
+ - Configurações de compartilhamento de eventos 'selecionar Privado'
+ - Modelo - selecionar 's3-put'
+ - No JSON do evento modificar:
+     - "name": "aws-bucket-input"(nome do bucket de entrada), 
+     - "key": "pet.json"(nome do arquivo que o bucket recebeu de acordo com os requisitos configurados)
+ 
+ 4. Habilitar consulta dos dados com Athena
+ - O Athena necessita armazenar o resultado das consultas em um bucket
+ 	- Ir em Configurações > Gerenciar > definir a localização do bucket S3 que irá ser salvo o resultado da consulta ('aws-bucket-output/athena/')
+ - Ir no Editor do Athena e começãr a criar o Banco de dados e tabela manualmente. 
+ 	- Na criação da tabela, definir o local s3 onde os dados estão salvos (ex: 's3://aws-bucket-output/' )
+ 
+ >>>> Aqui, foi identificado um ERRO DE PARSING ocasionado pela natureza dos dados e o modo como o csv foi gerado
+ 	- A coluna de endereço tem vírgulas nos valores, e o arquivo CSV tinha sido salvo com o delimitador padrão de vírgula.
+ >>>> Solução : Alterar no código da lambda para salvar o arquivo CSV com o delimitador ';' ao invés do padrão vírgula. 
+ 	- Isso também deve ser alterado no SQL do Athena, para informar o delimitador correto 
+ 
+ 
