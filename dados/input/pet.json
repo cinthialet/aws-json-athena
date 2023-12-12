@@ -1,0 +1,184 @@
+{
+  "agendamentos": [
+    {
+      "pet": {
+        "nome": "Bolinha",
+        "informacoes": "cachorro.Poodle.branco.macho",
+        "peso": 5.5
+      },
+      "dono": {
+        "nome": "Joao Silva",
+        "endereco": "Rua das Laranjeiras, 100, Rio de Janeiro, RJ",
+        "email": "joaosilva@email.com",
+        "telefone": "(21) 99999-9999"
+      },
+      "agendamento": {
+        "hora": "10:00",
+        "data": "2023-12-01",
+        "servico": "banho"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Mingau",
+        "informacoes": "gato.SIAMES.Cinza.FEMEA",
+        "peso": 3.2
+      },
+      "dono": {
+        "nome": "Maria Oliveira",
+        "endereco": "Av. Atlantica, 456, Rio de Janeiro, RJ",
+        "email": "mariaoliveira@email.com",
+        "telefone": "(21) 88888-8888"
+      },
+      "agendamento": {
+        "hora": "14:00",
+        "data": "2023-12-01",
+        "servico": "tosa"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Rex",
+        "informacoes": "cachorro.labrador.AMARELO.macho",
+        "peso": 30.0
+      },
+      "dono": {
+        "nome": "Carlos Pereira",
+        "endereco": "Rua do Catete, 789, Rio de Janeiro, RJ",
+        "email": "carlospereira@email.com",
+        "telefone": "(21) 77777-7777"
+      },
+      "agendamento": {
+        "hora": "15:30",
+        "data": "2023-12-02",
+        "servico": "banho + tosa"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Luna",
+        "informacoes": "cachorro.Beagle.tricolor.femea",
+        "peso": 10.0
+      },
+      "dono": {
+        "nome": "Fernanda Costa",
+        "endereco": "Praca da Bandeira, 1234, Rio de Janeiro, RJ",
+        "email": "fernandacosta@email.com",
+        "telefone": "(21) 66666-6666"
+      },
+      "agendamento": {
+        "hora": "09:00",
+        "data": "2023-12-03",
+        "servico": "banho"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Ziggy",
+        "informacoes": "gato.PERSA.BRANCO.MACHO",
+        "peso": 4.0
+      },
+      "dono": {
+        "nome": "Beatriz Gomes",
+        "endereco": "Av. Rio Branco, 567, Rio de Janeiro, RJ",
+        "email": "beatrizgomes@email.com",
+        "telefone": "(21) 55555-5555"
+      },
+      "agendamento": {
+        "hora": "11:00",
+        "data": "2023-12-03",
+        "servico": "tosa"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Nina",
+        "informacoes": "cachorro.Yorkshire.preto_e_dourado.femea",
+        "peso": 2.5
+      },
+      "dono": {
+        "nome": "Ricardo Nunes",
+        "endereco": "Rua Conde de Bonfim, 234, Rio de Janeiro, RJ",
+        "email": "ricardonunes@email.com",
+        "telefone": "(21) 44444-4444"
+      },
+      "agendamento": {
+        "hora": "16:00",
+        "data": "2023-12-04",
+        "servico": "banho + tosa"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Thor",
+        "informacoes": "cachorro.Rottweiler.preto_e_marrom.macho",
+        "peso": 40.0
+      },
+      "dono": {
+        "nome": "Juliana Menezes",
+        "endereco": "Av. Nossa Senhora de Copacabana, 890, Rio de Janeiro, RJ",
+        "email": "julianamenezes@email.com",
+        "telefone": "(21) 33333-3333"
+      },
+      "agendamento": {
+        "hora": "13:00",
+        "data": "2023-12-05",
+        "servico": "banho"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Frida",
+        "informacoes": "gato.Maine_Coon.cinza.femea",
+        "peso": 6.0
+      },
+      "dono": {
+        "nome": "Lucas Ferreira",
+        "endereco": "Rua Barata Ribeiro, 321, Rio de Janeiro, RJ",
+        "email": "lucasferreira@email.com",
+        "telefone": "(21) 22222-2222"
+      },
+      "agendamento": {
+        "hora": "10:30",
+        "data": "2023-12-05",
+        "servico": "tosa"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Simba",
+        "informacoes": "cachorro.Golden_Retriever.dourado.macho",
+        "peso": 25.0
+      },
+      "dono": {
+        "nome": "Patricia Rocha",
+        "endereco": "Rua Visconde de Piraja, 456, Rio de Janeiro, RJ",
+        "email": "patriciarocha@email.com",
+        "telefone": "(21) 11111-1111"
+      },
+      "agendamento": {
+        "hora": "15:00",
+        "data": "2023-12-06",
+        "servico": "banho + tosa"
+      }
+    },
+    {
+      "pet": {
+        "nome": "Mel",
+        "informacoes": "gato.Bengal.Malhado.Femea",
+        "peso": 4.5
+      },
+      "dono": {
+        "nome": "Andre Santos",
+        "endereco": "Av. Pasteur, 789, Rio de Janeiro, RJ",
+        "email": "andresantos@email.com",
+        "telefone": "(21) 00000-0000"
+      },
+      "agendamento": {
+        "hora": "08:30",
+        "data": "2023-12-06",
+        "servico": "banho"
+      }
+    }
+  ]
+}
