@@ -30,7 +30,7 @@ Os dados são estruturados da seguinte forma:
 ## Arquitetura
 A Arquitetura para esse projeto na AWS segue a imagem abaixo :
 
-[!https://github.com/cinthialet/aws-json-athena/blob/main/img/arquitetura-aws3.png]
+!(https://github.com/cinthialet/aws-json-athena/blob/main/img/arquitetura-aws3.png)
 
 O projeto é estruturado da seguinte forma:
 
