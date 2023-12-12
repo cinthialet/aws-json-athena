@@ -1,0 +1,32 @@
+-- Criando o Database 'agendamento_pet'
+CREATE DATABASE agendamento_pet;
+
+-- Criando a tabela 'agendamentos' no database criado acima
+CREATE EXTERNAL TABLE agendamento_pet.agendamentos (
+  agendamento string,
+  turno string,
+  servico string,
+  nome_pet string,
+  tipo string,
+  raca string,
+  cor string,
+  genero string,
+  peso_kg double,
+  porte string,
+  nome_tutor string,
+  endereco string,
+  email string,
+  telefone bigint
+)
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY ';' -- definindo o delimitador como ';'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE
+LOCATION 's3://aws-bucket-output/' -- local em que o arquivo csv está salvo na aws apos o processo de ETL
+TBLPROPERTIES ("skip.header.line.count"="1"); -- pulando primeira linha, que é o cabeçalho
+
+-- Checar os 10 primeiros registros da tabela criada
+SELECT * FROM agendamentos limit 10;
+
+-- Apagar o database + tabela criada
+DROP DATABASE agendamento_pet CASCADE;
