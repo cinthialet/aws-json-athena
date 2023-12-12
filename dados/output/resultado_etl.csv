@@ -1,0 +1,11 @@
+agendamento,turno,servico,nome_pet,tipo,raca,cor,genero,peso_kg,porte,nome_tutor,endereco,email,telefone
+2023-12-01 10:00,manhã,Banho,Bolinha,CACHORRO,Poodle,BRANCO,M,5.5,MED,Joao Silva,"Rua das Laranjeiras, 100, Rio de Janeiro, RJ",joaosilva@email.com,21999999999
+2023-12-01 14:00,tarde,Tosa,Mingau,GATO,Siames,CINZA,F,3.2,PEQ,Maria Oliveira,"Av. Atlantica, 456, Rio de Janeiro, RJ",mariaoliveira@email.com,21888888888
+2023-12-02 15:30,tarde,Banho&Tosa,Rex,CACHORRO,Labrador,AMARELO,M,30.0,GRAN,Carlos Pereira,"Rua do Catete, 789, Rio de Janeiro, RJ",carlospereira@email.com,21777777777
+2023-12-03 09:00,manhã,Banho,Luna,CACHORRO,Beagle,TRICOLOR,F,10.0,GRAN,Fernanda Costa,"Praca da Bandeira, 1234, Rio de Janeiro, RJ",fernandacosta@email.com,21666666666
+2023-12-03 11:00,manhã,Tosa,Ziggy,GATO,Persa,BRANCO,M,4.0,PEQ,Beatriz Gomes,"Av. Rio Branco, 567, Rio de Janeiro, RJ",beatrizgomes@email.com,21555555555
+2023-12-04 16:00,tarde,Banho&Tosa,Nina,CACHORRO,Yorkshire,PRETO_E_DOURADO,F,2.5,PEQ,Ricardo Nunes,"Rua Conde de Bonfim, 234, Rio de Janeiro, RJ",ricardonunes@email.com,21444444444
+2023-12-05 13:00,tarde,Banho,Thor,CACHORRO,Rottweiler,PRETO_E_MARROM,M,40.0,GRAN,Juliana Menezes,"Av. Nossa Senhora de Copacabana, 890, Rio de Janeiro, RJ",julianamenezes@email.com,21333333333
+2023-12-05 10:30,manhã,Tosa,Frida,GATO,Maine Coon,CINZA,F,6.0,MED,Lucas Ferreira,"Rua Barata Ribeiro, 321, Rio de Janeiro, RJ",lucasferreira@email.com,21222222222
+2023-12-06 15:00,tarde,Banho&Tosa,Simba,CACHORRO,Golden Retriever,DOURADO,M,25.0,GRAN,Patricia Rocha,"Rua Visconde de Piraja, 456, Rio de Janeiro, RJ",patriciarocha@email.com,21111111111
+2023-12-06 08:30,manhã,Banho,Mel,GATO,Bengal,MALHADO,F,4.5,PEQ,Andre Santos,"Av. Pasteur, 789, Rio de Janeiro, RJ",andresantos@email.com,21000000000
